@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section class="mb-40 overflow-hidden">
         <div
-            class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('https://tecdn.b-cdn.net/img/new/standard/city/078.jpg')]">
+            class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('https://www.ontheluce.com/wp-content/uploads/2012/11/petra-by-night.jpg.webp')]">
             <div
             class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0.75)]">
             <div class="flex h-full items-center justify-center">

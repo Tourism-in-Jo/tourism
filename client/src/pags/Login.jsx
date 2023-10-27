@@ -2,6 +2,51 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
+    
+    // const [formData, setFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //   });
+    
+    //   const [validationErrors, setValidationErrors] = useState({
+    //     name: '',
+    //     email: '',
+    //   });
+    
+    //   const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormData({
+    //       ...formData,
+    //       [name]: value,
+    //     });
+    //   };
+    
+    //   const validateInput = (name, value) => {
+    //     switch (name) {
+    //       case 'name':
+    //         return /^[A-Za-z\s]+$/.test(value) ? '' : 'Invalid name';
+    //       case 'email':
+    //         return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value) ? '' : 'Invalid email';
+    //       default:
+    //         return '';
+    //     }
+    //   };
+    
+    //   const handleBlur = (event) => {
+    //     const { name, value } = event.target;
+    //     const error = validateInput(name, value);
+    //     setValidationErrors({
+    //       ...validationErrors,
+    //       [name]: error,
+    //     });
+    //   };
+    
+    //   const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // You can check validationErrors and submit the form data if there are no errors.
+    //     console.log(formData);
+    //   };
+
   return (
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
