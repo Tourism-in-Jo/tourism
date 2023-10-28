@@ -28,9 +28,9 @@ const Register = () => {
       [name]: value,
     });
   };
-
+  let errors = {};
   const validateForm = () => {
-    let errors = {};
+    
 
     // check email
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
@@ -102,6 +102,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
+              {errors.first_name && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.first_name}
+                    </p>
+                  )}
               {/* last name */}
               <div>
                 <label
@@ -120,6 +125,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
+              {errors.last_name && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.last_name}
+                    </p>
+                  )}
               {/* username */}
               <div>
                 <label
@@ -138,6 +148,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
+              {errors.username && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.username}
+                    </p>
+                  )}
               {/* email */}
               <div>
                 <label
@@ -156,6 +171,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
+              {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.email}
+                    </p>
+                  )}
               {/* phone */}
               <div>
                 <label
@@ -192,6 +212,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
+              {errors.password && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.password}
+                    </p>
+                  )}
               {/* confirm */}
               <div>
                 <label
