@@ -5,6 +5,7 @@ import Home from "./pags/Home";
 import Login from "./pags/Login";
 import Register from "./pags/Register";
 import Footer from "./components/Footer";
+import Blog from "./components/Blog";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Register />}></Route>
+          <Route path="/blog/:id" element={<Blog />}></Route>
         </Routes>
         <Footer />
       </Router>

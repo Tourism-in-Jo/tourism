@@ -1,9 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 const Blog = () => {
-  return (
-    <div>
-      
+    const [blog, setBlog] = useState(null);
+    let { id } = useParams();
+    console.log(id)
+
+    useEffect(() => {
+        axios
+          .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+          .then((response) => {
+            // Handle the response data here
+            setBlog(response.data);
+            console.log(response.data);
+            console.log(blog);
+          })
+          .catch((error) => {
+            // Handle errors here
+            console.error("Error:", error);
+          });
+      }, []);
+
+
+    return (
+    <div className="flex flex-col lg:flex-row justify-center items-center m-20">
+        <img className="h-96 w-[291.5px] object-cover rounded-xl" src="https://www.ontheluce.com/wp-content/uploads/2012/11/petra-by-night.jpg.webp" alt="petra" />
+        <div className="p-3 pt-6 w-auto lg:p-10 lg:w-[50%] text-start flex flex-col items-center gap-2">
+            <h1 className="self-start text-3xl font-bold text-blue-900">{blog !== null
+                      ? blog.title
+                      : "Blog Title"}</h1>
+            <h5 className="self-start text-lg text-gray-700">Written by: Author Name</h5>
+            <h5 className="self-start text-lg text-gray-700">City: Petra</h5>
+            <p className="self-start text-medium">{blog !== null
+                      ? blog.body
+                      : "Blog Body"}</p>
+        </div>
     </div>
   )
 }
