@@ -10,17 +10,19 @@ const CardLayout = () => {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("http://localhost:5000")
       .then((response) => {
         // Handle the response data here
         setCard(response.data);
-        console.log(cards);
       })
       .catch((error) => {
         // Handle errors here
         console.error("Error:", error);
       });
   }, []);
+
+  console.log(cards);
+
   const totalPages = Math.ceil(cards.length / blogsPerPage);
 
   const indexOfLastBlog = currentPage * blogsPerPage;
@@ -89,11 +91,10 @@ const CardLayout = () => {
               <li key={number} className="mx-1">
                 <button
                   onClick={() => paginate(number)}
-                  className={`${
-                    currentPage === number
-                      ? "bg-[#006f6f7a] w-10 text-black"
-                      : "bg-[#00249b9c] w-10 text-gray-800"
-                  } py-2 px-3 focus:outline-none rounded-lg`}
+                  className={`${currentPage === number
+                    ? "bg-[#006f6f7a] w-10 text-black"
+                    : "bg-[#00249b9c] w-10 text-gray-800"
+                    } py-2 px-3 focus:outline-none rounded-lg`}
                 >
                   {number}
                 </button>

@@ -32,8 +32,8 @@ exports.getBlogDetails = async (req, res) => {
 
 
 exports.postBlog = async (req, res) => {
-    const { title, city, details, authorname } = req.body;
-
+    const { title, city, details, authorname, image } = req.body;
+    // console.log(image);
     try {
         const query = `insert into blogs_table (title, city, details,authorname)
           values ($1, $2, $3, $4)

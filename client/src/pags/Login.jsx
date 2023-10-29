@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    
   });
+  const history = useNavigate();
 
   const [validationErrors, setValidationErrors] = useState({
     email: "",
@@ -36,13 +42,15 @@ const Login = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-        if(validateForm){
-            try {
-                const response = await axios.post('http://127.0.0.1:3000/Login', formData);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        } 
+    if (validateForm) {
+      console.log(formData);
+      try {
+        const response = await axios.post('http://localhost:5000/Login', formData);
+        history("/");
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
   };
 
   return (

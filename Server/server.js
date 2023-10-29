@@ -3,7 +3,8 @@ const port = 3000;
 const express = require('express');
 const app = express();
 app.use(express.json());
-
+var cors = require('cors');
+app.use(cors());
 
 
 const blogController = require("./Controllers/blogController");
@@ -16,9 +17,7 @@ app.post("/Signup", userController.registerUser);
 app.post("/Login", userController.loginUser);
 app.get("/User", userController.getUserData);
 
-// app.post('/BlogPost', upload.single('image'), blogController.postBlog);
 
 
-app.listen(port, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(5000, () => { console.log("Server started on port 5000") });
+

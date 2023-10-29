@@ -3,9 +3,13 @@ import axios from 'axios';
 import { useState } from "react";
 
 const AddBlog = () => {
+
+
+  const [image, setImage] = useState();
+
   const [formData, setFormData] = useState({
     title: "",
-    authorName: "",
+    authorname: "",
     city: "",
     image_data: "",
     details: "",
@@ -18,17 +22,22 @@ const AddBlog = () => {
       [name]: value,
     });
   };
+  const handleUploadImage = (event) => {
+    setImage(event.target.files[0])
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(formData);
-    try{
-        const res = await axios.post(`http://127.0.0.1:3000/BlogPost`, formData);
-        
-    }catch(error){
-        console.log(error)
-    }  
-};
+    
+    console.log({...formData, image : image});
+    try {
+
+      const res = await axios.post(`http://localhost:5000/BlogPost`, {...formData, image : image});
+      console.log(res);
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <section class="dark:bg-gray-900">
@@ -51,7 +60,7 @@ const AddBlog = () => {
                   Title
                 </label>
                 <input
-                  type="title"
+                  type="text"
                   name="title"
                   value={formData.title}
                   id="title"
@@ -69,9 +78,9 @@ const AddBlog = () => {
                   Author Name
                 </label>
                 <input
-                  type="author"
-                  name="authorName"
-                  value={formData.authorName}
+                  type="text"
+                  name="authorname"
+                  value={formData.authorname}
                   id="author"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter your name"
@@ -87,7 +96,7 @@ const AddBlog = () => {
                   Author Name
                 </label>
                 <input
-                  type="city"
+                  type="text"
                   name="city"
                   value={formData.city}
                   id="city"
@@ -106,13 +115,12 @@ const AddBlog = () => {
                 </label>
                 <input
                   name="image_data"
-                  value={formData.image_data}
                   class="file:p-2.5 file:bg-gradient-to-r file:from-[#006f6f57] file:to-[#00249b5c] file:border-0 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   aria-describedby="blog-image_help"
                   id="blogImage"
                   type="file"
                   required="true"
-                  onChange={handleChange}
+                  onChange={handleUploadImage}
                 />
               </div>
               <div>

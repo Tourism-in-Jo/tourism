@@ -30,7 +30,7 @@ const Register = () => {
   };
   let errors = {};
   const validateForm = () => {
-    
+
 
     // check email
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
@@ -55,16 +55,16 @@ const Register = () => {
       errors.first_name = "Password must be at least 6 characters long";
     }
     if (!formData.last_name || formData.last_name.includes(" ")) {
-        errors.last_name = "Password must be at least 6 characters long";
-      }
+      errors.last_name = "Password must be at least 6 characters long";
+    }
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
-
+    console.log(formData);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:3000/Signup",
+        "http://localhost:5000/Signup",
         formData
       );
     } catch (error) {
@@ -87,15 +87,15 @@ const Register = () => {
               {/* first name */}
               <div>
                 <label
-                  for="firstName"
+                  for="first_name"
                   className="text-start ml-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   First Name
                 </label>
                 <input
-                  type="firstName"
-                  name="firstName"
-                  id="firstName"
+                  type="text"
+                  name="first_name"
+                  id="first_name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="first name"
                   required="true"
@@ -103,22 +103,22 @@ const Register = () => {
                 />
               </div>
               {errors.first_name && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.first_name}
-                    </p>
-                  )}
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.first_name}
+                </p>
+              )}
               {/* last name */}
               <div>
                 <label
-                  for="lastName"
+                  for="last_name"
                   className="text-start ml-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Last Name
                 </label>
                 <input
-                  type="lastName"
-                  name="lastName"
-                  id="lastName"
+                  type="text"
+                  name="last_name"
+                  id="last_name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="last name"
                   required="true"
@@ -126,22 +126,22 @@ const Register = () => {
                 />
               </div>
               {errors.last_name && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.last_name}
-                    </p>
-                  )}
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.last_name}
+                </p>
+              )}
               {/* username */}
               <div>
                 <label
-                  for="userName"
+                  for="username"
                   className="text-start ml-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Username
                 </label>
                 <input
-                  type="username"
-                  name="userName"
-                  id="userName"
+                  type="text"
+                  name="username"
+                  id="username"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="username"
                   required="true"
@@ -149,10 +149,10 @@ const Register = () => {
                 />
               </div>
               {errors.username && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.username}
-                    </p>
-                  )}
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.username}
+                </p>
+              )}
               {/* email */}
               <div>
                 <label
@@ -172,22 +172,22 @@ const Register = () => {
                 />
               </div>
               {errors.email && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.email}
-                    </p>
-                  )}
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.email}
+                </p>
+              )}
               {/* phone */}
               <div>
                 <label
-                  for="phone"
+                  for="phone_number"
                   className="text-start ml-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Phone Number
                 </label>
                 <input
                   type="tel"
-                  name="phone"
-                  id="phone"
+                  name="phone_number"
+                  id="phone_number"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="077 555 5555"
                   required="true"
@@ -213,10 +213,10 @@ const Register = () => {
                 />
               </div>
               {errors.password && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.password}
-                    </p>
-                  )}
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.password}
+                </p>
+              )}
               {/* confirm */}
               <div>
                 <label
